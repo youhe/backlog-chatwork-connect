@@ -67,7 +67,7 @@ class Main
         switch($type) {
 
             case 1:
-                $msg.= get_msg_title($input, '課題を追加したコン！');
+                $msg.= $this->_get_msg_title('課題を追加したコン！');
 
                 $summary = $input['content']['summary'];
                 $msg.= 'summary : '.$summary."\n";
@@ -75,7 +75,7 @@ class Main
                 break;
 
             case 2:
-                $msg.= get_msg_title($input, '課題を更新したコン！');
+                $msg.= $this->_get_msg_title('課題を更新したコン！');
 
                 $summary = $input['content']['summary'];
                 $msg.= 'summary : '.$summary."\n";
@@ -83,7 +83,7 @@ class Main
                 break;
 
             case 3:
-                $msg.= get_msg_title($input, '課題にコメントしたコン！');
+                $msg.= $this->_get_msg_title('課題にコメントしたコン！');
 
                 $comment = $input['content']['comment']['content'];
                 $msg.= $comment."\n";
@@ -91,7 +91,7 @@ class Main
                 break;
 
             case 5:
-                $msg.= get_msg_title($input, 'Wikiを登録したコン！');
+                $msg.= $this->_get_msg_title('Wikiを登録したコン！');
 
                 $comment = $input['content']['content'];
                 $msg.= $comment."\n";
@@ -99,14 +99,14 @@ class Main
                 break;
 
             case 6:
-                $msg.= get_msg_title($input, 'Wikiを更新したコン！');
+                $msg.= $this->_get_msg_title('Wikiを更新したコン！');
 
                 $msg.= $domain.'wiki/'.$project_key.'/'.$input['content']['name'];
                 break;
 
             case 12:
                 $this->_dev = true;
-                $msg.= get_msg_title($input, 'Gitプッシュしたコン！');
+                $msg.= $this->_get_msg_title('Gitプッシュしたコン！');
                 $comment = $input['content']['revisions'][0]['comment'];
                 $msg.= $comment."\n";
                 $msg.= $domain.'view/'.$project_key.'-'.$id;
@@ -124,10 +124,10 @@ class Main
         return $tMeg;
     }
 
-    private function _get_msg_title($input, $action = '')
+    private function _get_msg_title($action)
     {
-        $created = date('Y/m/d G:i', strtotime($input['created']));
-        $created_user_name = $input['createdUser']['name'];
+        $created = date('Y/m/d G:i', strtotime($this->_input['created']));
+        $created_user_name = $this->_input['createdUser']['name'];
 
         $title = '';
         $title.= '[title]';
