@@ -41,7 +41,7 @@ class Main
 
     private function _check_referer()
     {
-        $ref = $_SERVER['HTTP_REFERER'];
+        // $ref = $_SERVER['HTTP_REFERER'];
         return true;
     }
 
@@ -145,7 +145,7 @@ class Main
         else
             $room_id = $this->_CW_ROOM_ID;
 
-        $token = $CW_API_TOKEN;
+        $token = $this->_CW_API_TOKEN;
 
         header('Content-type: text/html; charset=utf-8');
         $data = array('body' => $this->_msg);
