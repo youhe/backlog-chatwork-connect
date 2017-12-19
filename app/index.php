@@ -19,7 +19,7 @@ class Main
         $this->_msg = '';
     }
 
-    public function init()
+    public function init($input)
     {
         // リファラーチェック
         if (!$this->_check_referer()) return;
@@ -35,7 +35,7 @@ class Main
         $this->_CW_DEV_ROOM_ID = $this->_config->get('cw_dev_room_id');
 
         // POST取得
-        $input_json = @file_get_contents('php://input');
+        $input_json = @file_get_contents($input);
         $this->_input = @json_decode($input_json, true);
     }
 
@@ -166,5 +166,5 @@ class Main
 }
 
 $main = new Main();
-$main->init();
+$main->init('php://input');
 $main->exe();
