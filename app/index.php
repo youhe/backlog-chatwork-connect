@@ -42,12 +42,6 @@ class Main
 
     private function _check_referer()
     {
-        // $ref = $_SERVER['HTTP_REFERER'];
-        $this->_dev = true;
-        $this->_msg = $_SERVER['HTTP_REFERER'];
-        $this->_send_msg();
-        $this->_dev = false;
-
         return true;
     }
 
