@@ -14,7 +14,8 @@ class Main
         $this->_CW_ROOM_ID = '';
         $this->_CW_DEV_ROOM_ID = '';
 
-        $this->_dev = false; // 送信先を開発環境にするか
+        // 送信先を開発環境にするか
+        $this->_dev = false;
         $this->_input = null;
         $this->_msg = '';
     }
@@ -42,6 +43,11 @@ class Main
     private function _check_referer()
     {
         // $ref = $_SERVER['HTTP_REFERER'];
+        $this->_dev = true;
+        $this->_msg = $_SERVER['HTTP_REFERER'];
+        $this->_send_msg();
+        $this->_dev = false;
+
         return true;
     }
 
