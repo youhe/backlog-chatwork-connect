@@ -91,7 +91,6 @@ class Main
                 break;
 
             case 5:
-                $this->_dev = true;
                 $msg.= $this->_get_msg_title('Wikiを登録したコン！');
                 $comment = $input['content']['content'];
                 $msg.= $comment."\n";
