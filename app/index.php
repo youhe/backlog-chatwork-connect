@@ -68,7 +68,6 @@ class Main
 
             case 1:
                 $msg.= $this->_get_msg_title('課題を追加したコン！');
-
                 $summary = $input['content']['summary'];
                 $msg.= 'summary : '.$summary."\n";
                 $msg.= "\n";
@@ -77,7 +76,6 @@ class Main
 
             case 2:
                 $msg.= $this->_get_msg_title('課題を更新したコン！');
-
                 $summary = $input['content']['summary'];
                 $msg.= 'summary : '.$summary."\n";
                 $msg.= "\n";
@@ -86,7 +84,6 @@ class Main
 
             case 3:
                 $msg.= $this->_get_msg_title('課題にコメントしたコン！');
-
                 $comment = $input['content']['comment']['content'];
                 $msg.= $comment."\n";
                 $msg.= "\n";
@@ -94,24 +91,18 @@ class Main
                 break;
 
             case 5:
+                $this->_dev = true;
                 $msg.= $this->_get_msg_title('Wikiを登録したコン！');
-
                 $comment = $input['content']['content'];
                 $msg.= $comment."\n";
                 $msg.= "\n";
-                $msg.= $domain.'wiki/'.$project_key.'/'.$input['content']['name'];
+                $msg.= $domain.'alias/wiki/'.$input['content']['id'];
                 break;
 
             case 6:
-                $this->_dev = true;
                 $msg.= $this->_get_msg_title('Wikiを更新したコン！');
-
                 $msg.= "\n";
-                // $msg.= $domain.'wiki/'.$project_key.'/'.$input['content']['name'];
                 $msg.= $domain.'alias/wiki/'.$input['content']['id'];
-                $msg.= "\n";
-                $msg.= "\n";
-                $msg.= json_encode($input);
                 break;
 
             case 12:
