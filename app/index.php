@@ -108,7 +108,7 @@ class Main
 
                 $msg.= "\n";
                 // $msg.= $domain.'wiki/'.$project_key.'/'.$input['content']['name'];
-                $msg.= $domain.'alias/wiki/';
+                $msg.= $domain.'alias/wiki/'.$input['content']['id'];
                 $msg.= "\n";
                 $msg.= "\n";
                 $msg.= json_encode($input);
