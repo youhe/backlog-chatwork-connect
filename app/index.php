@@ -71,6 +71,7 @@ class Main
 
                 $summary = $input['content']['summary'];
                 $msg.= 'summary : '.$summary."\n";
+                $msg.= "\n";
                 $msg.= $domain.'view/'.$project_key.'-'.$id;
                 break;
 
@@ -79,6 +80,7 @@ class Main
 
                 $summary = $input['content']['summary'];
                 $msg.= 'summary : '.$summary."\n";
+                $msg.= "\n";
                 $msg.= $domain.'view/'.$project_key.'-'.$id;
                 break;
 
@@ -87,6 +89,7 @@ class Main
 
                 $comment = $input['content']['comment']['content'];
                 $msg.= $comment."\n";
+                $msg.= "\n";
                 $msg.= $domain.'view/'.$project_key.'-'.$id;
                 break;
 
@@ -95,13 +98,20 @@ class Main
 
                 $comment = $input['content']['content'];
                 $msg.= $comment."\n";
+                $msg.= "\n";
                 $msg.= $domain.'wiki/'.$project_key.'/'.$input['content']['name'];
                 break;
 
             case 6:
+                $this->_dev = true;
                 $msg.= $this->_get_msg_title('Wikiを更新したコン！');
 
-                $msg.= $domain.'wiki/'.$project_key.'/'.$input['content']['name'];
+                $msg.= "\n";
+                // $msg.= $domain.'wiki/'.$project_key.'/'.$input['content']['name'];
+                $msg.= $domain.'alias/wiki/';
+                $msg.= "\n";
+                $msg.= "\n";
+                $msg.= json_encode($input);
                 break;
 
             case 12:
